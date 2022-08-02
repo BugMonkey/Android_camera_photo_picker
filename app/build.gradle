@@ -66,16 +66,16 @@ dependencies {
     annotationProcessor "androidx.annotation:annotation:1.2.0"
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.github.jitpack'
-                artifactId = 'bugmonkey-camerax-picker'
-                version = '1.0'
-            }
-        }
-    }
-}
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            // Creates a Maven publication called "release".
+//            release(MavenPublication) {
+//                from components.release
+//                groupId = 'com.github.jitpack'
+//                artifactId = 'bugmonkey-camerax-picker'
+//                version = '1.0'
+//            }
+//        }
+//    }
+//}
