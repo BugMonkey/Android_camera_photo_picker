@@ -16,7 +16,12 @@ import com.zhihu.matisse.Matisse;
 
 
 public class ImagePreviewActivity extends AppCompatActivity {
+    public static String RESULT_URI = "result_uri";
+
     private ActivityImagePreviewBinding binding;
+
+    private Uri uri;
+
     public static void start(Activity context, Uri uri, int req) {
 
         Intent starter = new Intent(context, ImagePreviewActivity.class);
@@ -27,11 +32,19 @@ public class ImagePreviewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_image_preview);
+
+        uri = getIntent().getParcelableExtra("uri");
+
+        if (uri == null){
+            finish();
+            return;
+        }
+
         binding = ActivityImagePreviewBinding.inflate(getLayoutInflater());
+
         setContentView(binding.getRoot());
 
-        Glide.with(this).load((Uri) getIntent().getParcelableExtra("uri")).into(binding.image);
+        Glide.with(this).load(uri).into(binding.image);
 
         binding.tvCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +56,8 @@ public class ImagePreviewActivity extends AppCompatActivity {
         binding.tvConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.putExtra(RESULT_URI,uri);
                 setResult(RESULT_OK);
                 finish();
             }

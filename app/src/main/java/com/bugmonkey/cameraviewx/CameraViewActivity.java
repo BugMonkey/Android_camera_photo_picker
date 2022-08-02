@@ -25,6 +25,7 @@ import androidx.lifecycle.Observer;
 
 import android.Manifest;
 import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
@@ -73,7 +74,7 @@ public class CameraViewActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_PERMISSIONS = 10;
     private static final int REQUEST_CODE_GALLERY = 11;
     private static final int REQUEST_CODE_PREVIEW = 12;
-
+    public static final int REQUEST_CAMERA_VIEW_ACTIVITY = 13;
     private static final String TAG = "CameraX";
 
 
@@ -102,7 +103,10 @@ public class CameraViewActivity extends AppCompatActivity {
 
     private Camera camera;
 
-    private ImageAnalysis imageAnalyzer;
+    public static void start(Activity context) {
+        Intent starter = new Intent(context, CameraViewActivity.class);
+        context.startActivityForResult(starter,REQUEST_CAMERA_VIEW_ACTIVITY);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -475,6 +479,8 @@ public class CameraViewActivity extends AppCompatActivity {
 
                     break;
                 case REQUEST_CODE_PREVIEW:
+                    setResult(RESULT_OK,data);
+                    finish();
                     break;
             }
         }
