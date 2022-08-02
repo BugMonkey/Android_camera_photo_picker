@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="AppTheme"
+        parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="Matisse" parent="Matisse.Zhihu">
+        <item name="colorPrimary">@color/accentColor</item>
+        <item name="colorPrimaryDark">@color/accentColor</item>
+    </style>
+</resources>
