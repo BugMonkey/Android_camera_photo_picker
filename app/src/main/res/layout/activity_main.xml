@@ -77,7 +77,7 @@
     </FrameLayout>
 
 
-    <com.zhihu.matisse.internal.ui.widget.RoundedRectangleImageView
+    <com.bugmonkey.cameraviewx.matisse.internal.ui.widget.RoundedRectangleImageView
         android:id="@+id/iv_gallery"
         android:layout_width="40dp"
         android:layout_height="40dp"

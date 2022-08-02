@@ -3,16 +3,13 @@ package com.bugmonkey.cameraviewx;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
 import com.bugmonkey.cameraviewx.databinding.ActivityImagePreviewBinding;
 import com.bumptech.glide.Glide;
-import com.zhihu.matisse.Matisse;
 
 
 public class ImagePreviewActivity extends AppCompatActivity {

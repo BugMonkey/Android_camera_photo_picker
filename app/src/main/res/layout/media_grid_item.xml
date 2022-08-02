@@ -14,12 +14,8 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   -->
-<resources>
-    <color name="accentColor">#FF00C7FF</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="preview_bottom_toolbar_bg">#CC000000</color>
-    <color name="preview_bottom_size">#61FFFFFF</color>
-
-
-</resources>
+<com.bugmonkey.cameraviewx.matisse.internal.ui.widget.MediaGrid
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?selectableItemBackground"/>
