@@ -1,4 +1,4 @@
-/*
+package com.bugmonkey.cameraviewx.matisse;/*
  * Copyright 2017 Zhihu Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,15 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.bugmonkey.cameraviewx.matisse;
+
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bugmonkey.cameraviewx.matisse.MimeType;
+import com.bugmonkey.cameraviewx.matisse.SelectionCreator;
 import com.bugmonkey.cameraviewx.matisse.ui.MatisseActivity;
+
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -93,6 +98,16 @@ public final class Matisse {
      * @return User selected media path list.
      */
     public static List<String> obtainPathResult(Intent data) {
+        return data.getStringArrayListExtra(MatisseActivity.EXTRA_RESULT_SELECTION_PATH);
+    }
+    /**
+     * Obtain user selected media path list in the starting Activity or Fragment.
+     *
+     * @param data Intent passed by {@link Activity#onActivityResult(int, int, Intent)} or
+     *             {@link Fragment#onActivityResult(int, int, Intent)}.
+     * @return User selected media path list.
+     */
+    public static List<String> obtainPathResult(Intent data, Context context) {
         return data.getStringArrayListExtra(MatisseActivity.EXTRA_RESULT_SELECTION_PATH);
     }
 
