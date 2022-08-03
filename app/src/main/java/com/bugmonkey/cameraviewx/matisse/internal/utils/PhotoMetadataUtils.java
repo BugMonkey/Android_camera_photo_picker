@@ -1,4 +1,4 @@
-/*
+package com.bugmonkey.cameraviewx.matisse.internal.utils;/*
  * Copyright (C) 2014 nohana, Inc.
  * Copyright 2017 Zhihu Inc.
  *
@@ -14,13 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.bugmonkey.cameraviewx.matisse.internal.utils;
 
-import android.annotation.SuppressLint;
+
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.media.ExifInterface;
@@ -29,17 +29,18 @@ import android.provider.MediaStore;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
+
 import com.bugmonkey.cameraviewx.R;
 import com.bugmonkey.cameraviewx.matisse.MimeType;
+import com.bugmonkey.cameraviewx.matisse.filter.Filter;
 import com.bugmonkey.cameraviewx.matisse.internal.entity.IncapableCause;
 import com.bugmonkey.cameraviewx.matisse.internal.entity.Item;
 import com.bugmonkey.cameraviewx.matisse.internal.entity.SelectionSpec;
+import com.bugmonkey.cameraviewx.matisse.internal.utils.ExifInterfaceCompat;
 
-import com.bugmonkey.cameraviewx.matisse.filter.Filter;
-
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -81,16 +82,24 @@ public final class PhotoMetadataUtils {
     }
 
     public static Point getBitmapBound(ContentResolver resolver, Uri uri) {
-        InputStream is = null;
+        FileInputStream is = null;
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;
-            is = resolver.openInputStream(uri);
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            options.inPreferQualityOverSpeed = false;
+//            is = resolver.openInputStream(uri);
+
+            is = new FileInputStream(uri.getPath());
+            BitmapFactory.decodeFileDescriptor(is.getFD(), null, options);
             BitmapFactory.decodeStream(is, null, options);
             int width = options.outWidth;
             int height = options.outHeight;
             return new Point(width, height);
         } catch (FileNotFoundException e) {
+            return new Point(0, 0);
+        } catch (IOException e) {
+            e.printStackTrace();
             return new Point(0, 0);
         } finally {
             if (is != null) {
@@ -103,7 +112,6 @@ public final class PhotoMetadataUtils {
         }
     }
 
-    @SuppressLint("Range")
     public static String getPath(ContentResolver resolver, Uri uri) {
         if (uri == null) {
             return null;
