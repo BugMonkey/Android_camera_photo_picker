@@ -1,4 +1,4 @@
-/*
+package com.bugmonkey.cameraviewx.matisse;/*
  * Copyright (C) 2014 nohana, Inc.
  * Copyright 2017 Zhihu Inc.
  *
@@ -14,15 +14,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.bugmonkey.cameraviewx.matisse;
+
+
 
 import android.content.ContentResolver;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.webkit.MimeTypeMap;
 
 import androidx.collection.ArraySet;
 
-import android.webkit.MimeTypeMap;
 
 import com.bugmonkey.cameraviewx.matisse.internal.utils.PhotoMetadataUtils;
 
@@ -88,6 +89,8 @@ public enum MimeType {
     TS("video/mp2ts", arraySetOf(
             "ts"
     )),
+    HEIC("image/heic", arraySetOf("heic")),
+    HEIF("image/heif", arraySetOf("heif")),
     AVI("video/avi", arraySetOf(
             "avi"
     ));
@@ -109,7 +112,7 @@ public enum MimeType {
     }
 
     public static Set<MimeType> ofImage() {
-        return EnumSet.of(JPEG, PNG, GIF, BMP, WEBP);
+        return EnumSet.of(JPEG, PNG, BMP, WEBP,HEIC,HEIF);
     }
 
     public static Set<MimeType> ofImage(boolean onlyGif) {
