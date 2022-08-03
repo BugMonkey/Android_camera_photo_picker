@@ -42,7 +42,8 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
-import com.bugmonkey.cameraviewx.databinding.ActivityMainBinding;
+
+import com.bugmonkey.cameraviewx.databinding.ActivityCameraPreviewBinding;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.bugmonkey.cameraviewx.matisse.Matisse;
 import com.bugmonkey.cameraviewx.matisse.MimeType;
@@ -68,7 +69,7 @@ public class CameraViewActivity extends AppCompatActivity {
     private String[] REQUIRED_PERMISSIONS = new String[]{Manifest.permission.CAMERA,
             Manifest.permission.RECORD_AUDIO,Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-    private ActivityMainBinding viewBinding;
+    private ActivityCameraPreviewBinding viewBinding;
 
     private ImageCapture imageCapture;
 
@@ -99,7 +100,7 @@ public class CameraViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        viewBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        viewBinding = ActivityCameraPreviewBinding.inflate(getLayoutInflater());
         setContentView(viewBinding.getRoot());
 
         cameraExecutor = Executors.newSingleThreadExecutor();

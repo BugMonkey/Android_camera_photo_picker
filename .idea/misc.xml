@@ -14,10 +14,13 @@
         <entry key="app/src/main/res/drawable/ic_focus_view.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.171" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1875" />
-        <entry key="app/src/main/res/layout/activity_image_preview.xml" value="0.16197916666666667" />
+        <entry key="app/src/main/res/layout/activity_camera_preview.xml" value="0.15364583333333334" />
+        <entry key="app/src/main/res/layout/activity_image_preview.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_matisse.xml" value="0.19947916666666668" />
         <entry key="app/src/main/res/layout/activity_media_preview.xml" value="0.19947916666666668" />
+        <entry key="app/src/main/res/layout/fragment_media_selection.xml" value="0.2638888888888889" />
+        <entry key="app/src/main/res/layout/fragment_preview_item.xml" value="0.2638888888888889" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.154" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1875" />
         <entry key="matisse/src/main/res/layout/activity_matisse.xml" value="0.20052083333333334" />

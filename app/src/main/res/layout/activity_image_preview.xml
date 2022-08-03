@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical|start"
-            android:text="取消"
+            android:text="@string/button_cancel"
             android:gravity="center"
             android:textColor="@color/white"
             android:textSize="14sp" />
@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical|end"
-            android:text="确认"
+            android:text="@string/button_sure_default"
             android:gravity="center"
             android:textColor="@color/accentColor"
             android:textSize="14sp" />

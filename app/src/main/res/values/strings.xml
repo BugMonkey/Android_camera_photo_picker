@@ -38,5 +38,6 @@
     <string name="error_over_original_count">%1$d images over %2$d MB. Original will be unchecked</string>
     <string name="button_original">Original</string>
     <string name="button_sure_default">Sure</string>
+    <string name="button_cancel">Cancel</string>
     <string name="button_sure">Sure(%1$d)</string>
 </resources>

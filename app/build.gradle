@@ -6,7 +6,7 @@ plugins {
 group = 'com.github.jitpack'
 
 android {
-    compileSdk 31
+    compileSdk 29
 
     defaultConfig {
 
