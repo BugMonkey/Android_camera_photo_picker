@@ -55,7 +55,7 @@ public class ImagePreviewActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.putExtra(RESULT_URI,uri);
-                setResult(RESULT_OK);
+                setResult(RESULT_OK,intent);
                 finish();
             }
         });
