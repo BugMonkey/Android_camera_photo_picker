@@ -44,6 +44,7 @@ import android.widget.Toast;
 
 
 import com.bugmonkey.cameraviewx.databinding.ActivityCameraPreviewBinding;
+import com.bugmonkey.cameraviewx.matisse.ui.MatisseActivity;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.bugmonkey.cameraviewx.matisse.Matisse;
 import com.bugmonkey.cameraviewx.matisse.MimeType;
@@ -51,6 +52,7 @@ import com.bugmonkey.cameraviewx.matisse.MimeType;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -705,5 +707,21 @@ public class CameraViewActivity extends AppCompatActivity {
         bitmap.setPixels(pix, 0, w, 0, 0, w, h);
 
         return (bitmap);
+    }
+
+    /**
+     * 获取选择的照片结果
+     * @param data
+     * @return
+     */
+    public static String obtainPathResult(Intent data) {
+        if (data == null){
+            return "";
+        }
+        Uri uri = data.getParcelableExtra(ImagePreviewActivity.RESULT_URI);
+        if (uri == null ){
+            return "";
+        }
+        return uri.getPath();
     }
 }
