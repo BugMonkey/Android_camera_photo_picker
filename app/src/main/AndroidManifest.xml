@@ -7,8 +7,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="28" />
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
@@ -17,10 +16,11 @@
         <activity
             android:name=".ImagePreviewActivity"
             android:exported="false"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/CameraViewXFullScreenTheme"/>
         <activity
             android:name=".CameraViewActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/CameraViewXFullScreenTheme">
         </activity>
         <activity android:name=".matisse.ui.MatisseActivity"
             android:exported="true"/>
