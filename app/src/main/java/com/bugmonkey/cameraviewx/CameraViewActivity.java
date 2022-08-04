@@ -44,6 +44,7 @@ import android.widget.Toast;
 
 
 import com.bugmonkey.cameraviewx.databinding.ActivityCameraPreviewBinding;
+import com.bugmonkey.cameraviewx.matisse.internal.utils.PathUtils;
 import com.bugmonkey.cameraviewx.matisse.ui.MatisseActivity;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.bugmonkey.cameraviewx.matisse.Matisse;
@@ -710,11 +711,11 @@ public class CameraViewActivity extends AppCompatActivity {
     }
 
     /**
-     * 获取选择的照片结果
+     * 获取选择的照片地址
      * @param data
      * @return
      */
-    public static String obtainPathResult(Intent data) {
+    public static String obtainPathResult(Intent data,Context context) {
         if (data == null){
             return "";
         }
@@ -722,6 +723,6 @@ public class CameraViewActivity extends AppCompatActivity {
         if (uri == null ){
             return "";
         }
-        return uri.getPath();
+        return PathUtils.getPath(context,uri);
     }
 }
